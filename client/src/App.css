@@ -1,0 +1,82 @@
+/* body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #2c2c2c, #3e3e3e, #4a4a4a, #2f2f2f);
+  background-size: 400% 400%;
+  animation: gradientFlow 10s ease infinite;
+  color: #f1f1f1; /* Ensure text is readable */
+  /* min-height: 100vh; */
+/* } */
+
+/* @keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} */
+
+/* Main App Wrapper */
+.App {
+  min-height: 100vh;
+  padding: 20px;
+  backdrop-filter: blur(2px); /* optional: adds subtle glass effect */
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* spacing between buttons */
+  flex-wrap: wrap;
+  margin-bottom: 100px; /* space below buttons so they don't touch employee cards */
+  margin-top: 100px;
+}
+
+.button-group button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+  background-color: #357ab8;
+}
+
+.employee-record {
+  margin: 0 auto; /* centers the box */
+  padding: 15px 25px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  background-color: #ffffff;
+  border-left: 6px solid #4a90e2;
+  border-right: 6px solid #4a90e2;
+  border-radius: 8px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  width: fit-content;
+  margin-bottom: 20px;
+  text-align: center; /* optional, centers text inside box */
+}
+.heading-box{
+  margin: 0 auto;
+  padding: 20px 30px;
+  font-family: 'Georgia', serif; /* elegant, professional font */
+  font-weight: bold;
+  font-size: 28px;
+  background-color: #e0f7fa; /* soft aqua */
+  color: #0a3d62; /* dark blue for contrast */
+  border-left: 6px solid #00acc1;
+  border-right: 6px solid #00acc1;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  text-align: center;
+  margin-bottom: 30px;
+}

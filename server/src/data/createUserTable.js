@@ -1,0 +1,23 @@
+import pool from "../config/db.js";
+
+const createUserTable = async () => {
+    const queryText = `CREATE TABLE IF NOT EXISTS employee (
+    id SERIAL PRIMARY KEY,
+    emp_id VARCHAR(20) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    designation VARCHAR(100),
+    salary NUMERIC(10, 2),
+    created_at TIMESTAMP DEFAULT NOW()
+)
+    `;
+    try{
+        pool.query(queryText);
+        console.log("User Table Created!");
+    }
+    catch(error){
+        console.log("Error Creating User Table: ", error);
+    }
+};
+
+export default createUserTable;

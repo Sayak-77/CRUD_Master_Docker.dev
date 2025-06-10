@@ -1,0 +1,20 @@
+.get-users-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(to right, #6fb1fc 0%, #1e3c72 100%);
+  background-size: 200% auto;
+  background-position: left center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-position 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.get-users-button:hover {
+  transition: 0.4s ease-in;
+  background-position: right center;
+  box-shadow: 0 6px 12px rgba(30, 60, 114, 0.4);
+}

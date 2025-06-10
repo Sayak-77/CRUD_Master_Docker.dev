@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  #postgresql_server container
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  #postgresql_admin container
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      PPGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+  #frontend_container
+  client:
+    build: ./client
+    image: client:3000
+    container_name: client
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app           # Mount your source code for live updates
+      - /app/node_modules       # Prevent overwriting node_modules inside container
+    environment:
+      - CHOKIDAR_USEPOLLING=true   # Helps with file watching inside Docker (important for Windows/Mac)
+    depends_on:
+      - server
+  
+  #backend_container
+  server:
+    build: ./server
+    image: server:5001
+    container_name: server
+    restart: always
+    ports:
+      - "5001:5001"
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/app            # Mount your local server code
+      - /app/node_modules        # Preserve node_modules inside container
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+  pgadmin_data:

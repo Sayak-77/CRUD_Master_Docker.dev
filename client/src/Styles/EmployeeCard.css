@@ -1,0 +1,48 @@
+.employee-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+/* Employee Card Styling */
+.employee-card {
+  background-color: #a3ebf9;
+  border-bottom: 2px solid black; 
+  border-right: 2px solid black; 
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease-in-out, box-shadow 0.2s ease;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Hover Effect */
+.employee-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25); 
+}
+
+/* Employee Text Styles */
+.employee-card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: #2c3e50;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.employee-card p {
+  margin: 6px 0;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
