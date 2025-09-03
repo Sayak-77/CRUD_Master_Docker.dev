@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
 import "./App.css";
-import { ToastContainer,Slide } from 'react-toastify';
+import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GetAllUsersButton from "./components/GetAllUsersButton";
 import EmployeeCard from "./components/EmployeeCard";
@@ -10,13 +11,21 @@ import UpdateUserButton from "./components/UpdateUserButton";
 import DeleteUserButton from "./components/DeleteUserButton";
 import Login from "./components/Login";
 
+const AuthPage = () =>  {
 
-function App() {
+  return (
+    <div className="auth-wrapper">
+      <Login/>
+    </div>
+  );
+}
 
+// Home Page Layout
+const Home = () => {
   const [employees, setEmployees] = useState([]);
+
   return (
     <div className="App">
-      <Login/>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -30,7 +39,8 @@ function App() {
         theme="dark"
         transition={Slide}
       />
-      {/* <h1 className="heading-box">EMPLOYEE MANAGEMENT SYSTEM</h1>
+
+      <h1 className="heading-box">EMPLOYEE MANAGEMENT SYSTEM</h1>
       <div className="button-group">
         <GetAllUsersButton setEmployees={setEmployees} />
         <GetUserByIdButton setEmployees={setEmployees} />
@@ -41,11 +51,24 @@ function App() {
 
       <div className="employee-record">EMPLOYEE_RECORDS</div>
       <div className="employee-list">
-        {Array.isArray(employees) && employees.map(employee => (
-          <EmployeeCard key={employee.emp_id} employee={employee} />
-        ))}
-      </div> */}
+        {Array.isArray(employees) &&
+          employees.map((employee) => (
+            <EmployeeCard key={employee.emp_id} employee={employee} />
+          ))}
+      </div>
     </div>
+  );
+};
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/welcomelogin" element={<AuthPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="*" element={<AuthPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -15,10 +15,21 @@
 } */
 
 /* Main App Wrapper */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   min-height: 100vh;
   padding: 20px;
   backdrop-filter: blur(2px); /* optional: adds subtle glass effect */
+  background: linear-gradient(
+    to bottom right, 
+    #0f172a,  /* slate-900 */
+    #1e293b,  /* slate-800 */
+    #0f172a   /* slate-900 */
+  );
 }
 
 
@@ -33,25 +44,12 @@
 
 .button-group button {
   padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-  background-color: #4a90e2;
-  color: white;
-  cursor: pointer;
-  position: relative;
-  transition: background-color 0.3s ease;
-}
-
-.button-group button:hover {
-  background-color: #357ab8;
 }
 
 .employee-record {
   margin: 0 auto; /* centers the box */
   padding: 15px 25px;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Epunda Slab", serif;
   font-weight: 600;
   font-size: 20px;
   background-color: #ffffff;
@@ -80,3 +78,4 @@
   text-align: center;
   margin-bottom: 30px;
 }
+
