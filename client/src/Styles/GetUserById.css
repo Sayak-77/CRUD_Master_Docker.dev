@@ -14,6 +14,5 @@
 
 .get-user-button:hover {
   box-shadow: 0 6px 12px rgba(0, 172, 193, 0.4);
-  border-left: 4px solid #4a90e2;
-  border-right: 4px solid #4a90e2;
+  box-shadow: inset 5px 0 0 #4a90e2, inset -5px 0 0 #4a90e2;
 }
