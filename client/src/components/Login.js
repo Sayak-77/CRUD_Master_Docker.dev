@@ -261,8 +261,14 @@ const Login = () => {
                                 </div>
                               </motion.label>
                             )}
+                          <div className="mt-1 text-xs text-slate-400 text-left">
+                            <button
+                              type="button"
+                              className="hover:text-slate-300 underline underline-offset-2"
+                            >Forgot Password</button>
+                          </div>
                           </AnimatePresence>
-
+          
                           <motion.button
                             custom={4}
                             variants={formStack}
